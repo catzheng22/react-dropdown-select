@@ -18,6 +18,8 @@ This project was started with `npm create-react-app dropdown-test` and includes 
 ![alt text](src/assets/multiselect_example.png)
 ### Multi-Select
 The multi-select use case performs as you would expect a multi-select dropdown menu to work. You can select multiple options, which visually update on the component, and press "Select All" to well... select all. If you individually select everything, select all will be ticked -- and if everything is selected, "Select All" becomes "Deselect All".
+
+I should note that you _can_ add duplicate options, but I recommend against it because functionally there will just be duplicate items your dropdown menu. If one duplicate is selected, the rest are, which technically allows the items to be unique, but it looks pretty wack.
 ```
 const multiselectOptions = [
   {label: "Vincent Van Gogh", value: "Vincent Van Gogh"},
