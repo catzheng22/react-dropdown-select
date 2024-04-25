@@ -3,19 +3,23 @@ This project was started with `npm create-react-app dropdown-test` and includes 
 
 ### The component lives in `/src/components/Dropdown.react.js`
 
-# Usage & How to Run
+## Usage
+### Props
+`title: string` -> Small descriptive title that appears in top left corner.  
+`multiselect: boolean` -> Variable that determines which type of dropdown menu you get.  
+`options: ArrayList<Objects>` -> Dropdown menu options, specified in [{label: "x", value: "y"}] format (examples below).  
+`placeholderText?: string` -> Override the default placeholder text "Select".  
+
+### How to Run
 1. Clone or fork this repo.
 2. In command line, run `npm start` and open the app on your local browser to see live changes.
-3. See usage examples on `App.js`.
-
-## Props
-`title: string` -> Small descriptive title that appears in top left corner.
-`multiselect: boolean` -> Variable that determines which type of dropdown menu you get.
-`options: ArrayList<Objects>` -> Dropdown menu options, specified in [{label: "x", value: "y"}] format (examples below).
-`placeholderText?: string` -> Override the default placeholder text "Select".
+3. See usage examples on `App.js` and try changing those values.
 
 ![alt text](src/assets/multiselect_example.png)
-### Multi-Select Example
+### Multi-Select
+The multi-select use case performs as you would expect a multi-select dropdown menu to work. You can select multiple options, which visually update on the component, and press "Select All" to well... select all. If you individually select everything, select all will be ticked -- and if everything is selected, "Select All" becomes "Deselect All".
+
+I should note that you _can_ add duplicate options, but I recommend against it because functionally there will just be duplicate items your dropdown menu. If one duplicate is selected, the rest are, which technically allows the items to be unique, but it looks pretty wack.
 ```
 const multiselectOptions = [
   {label: "Vincent Van Gogh", value: "Vincent Van Gogh"},
@@ -35,7 +39,7 @@ const multiselectOptions = [
 
 ![alt text](src/assets/singleselect_example.png)
 ### Single-Select Example
-
+Ditto the multi-select, except with this one there are no checkboxes because you can only have one anyway.
 ```
 const singleSelectOptions = [
   {label: "Under 18", value: "0-18"},
@@ -53,3 +57,7 @@ const singleSelectOptions = [
     placeholderText='Select an age group'
 />
 ```
+
+That's about it! Thanks for checking this out.
+
+Last updated: 4/25/2024
