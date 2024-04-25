@@ -19,8 +19,6 @@ const Dropdown = ({
     const [selectedItems, setSelectedItems] = useState([]);
     
     const handleSelect = ({label, value, isSelected, multiselect}) => {
-        console.log("Called handleSelect " + label);
-
         if (multiselect) {
             setSelectedItems(s => {
                 // If option is in selectedItems, unselect value and update
@@ -38,9 +36,6 @@ const Dropdown = ({
     };
 
     const toggleSelectAll = () => {
-        console.log(selectedItems)
-        console.log("Called toggleSelectAll");
-
         if (selectedItems.length === options.length) {
             setSelectedItems([]);
         } else {
