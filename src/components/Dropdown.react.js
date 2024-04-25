@@ -23,7 +23,7 @@ const Dropdown = ({
 
         if (multiselect) {
             setSelectedItems(s => {
-                // If option is selectedItems, unselect value and update
+                // If option is in selectedItems, unselect value and update
                 if (isSelected && s.find(option => option.value === value)) {
                     return(s.filter(option => option.value !== value));
                 } else {
