@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Overview
+This project was started with `npm create-react-app dropdown-test` and includes the implementation of a reusable React dropdown menu component, built from scratch in React.js in less than 24 hours.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The component lives in `/src/components/Dropdown.react.js`
 
-## Available Scripts
+# Usage & How to Run
+1. Clone or fork this repo.
+2. In command line, run `npm start` and open the app on your local browser to see live changes.
+3. See usage examples on `App.js`.
 
-In the project directory, you can run:
+## Props
+`title: string` -> Small descriptive title that appears in top left corner.
+`multiselect: boolean` -> Variable that determines which type of dropdown menu you get.
+`options: ArrayList<Objects>` -> Dropdown menu options, specified in [{label: "x", value: "y"}] format (examples below).
+`placeholderText?: string` -> Override the default placeholder text "Select".
 
-### `npm start`
+![alt text](src/assets/multiselect_example.png)
+### Multi-Select Example
+```
+const multiselectOptions = [
+  {label: "Vincent Van Gogh", value: "Vincent Van Gogh"},
+  {label: "Picasso", value: "Picasso"},
+  {label: "Claude Monet", value: "Claude Monet"},
+  {label: "Leonardo Da Vinci", value: "Leonardo Da Vinci"},
+  {label: "Justin Bieber", value: "Justin Bieber"},
+]
+...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<Dropdown
+    title={"Artists"}
+    multiselect={true}
+    options={multiselectOptions}
+/>
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![alt text](src/assets/singleselect_example.png)
+### Single-Select Example
 
-### `npm test`
+```
+const singleSelectOptions = [
+  {label: "Under 18", value: "0-18"},
+  {label: "18-25", value: "18-25"},
+  {label: "26-39", value: "26-39"},
+  {label: "40-69", value: "40-69"},
+  {label: "70+", value: "70+"},
+]
+...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<Dropdown
+    title={"Age Group"}
+    multiselect={false}
+    options={singleSelectOptions}
+    placeholderText='Select an age group'
+/>
+```
